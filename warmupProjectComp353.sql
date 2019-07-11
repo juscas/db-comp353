@@ -93,3 +93,28 @@ CREATE TABLE IF NOT EXISTS Class(
 CREATE TABLE IF NOT EXISTS Advisor(
   name TEXT NOT NULL
   );
+ALTER TABLE Student 
+DROP admittedAs;
+
+ALTER TABLE Student 
+ADD COLUMN undergrad BOOLEAN DEFAULT FALSE,
+
+ALTER TABLE Student
+ADD COLUMN grad BOOLEAN DEFAULT FALSE;
+
+ALTER TABLE Student
+MODIFY Advisor int ;
+
+INSERT INTO Student
+VALUES 
+(40061791, 2.98, "Matthew", "Massey", NULL, 48, "Computer Science", 1,0),
+(17654321, 4.00, "Tony", "Hawk", 15839967, 125, "Engineering", 0,1),
+(34254352, 1.8, "Sally", "Sadness", NULL, 22, "Psychology", 1,0),
+(33999323, 4.3, "Jesus", "Christ", 25949503, 130, "Aerospace Engineering", 1,1),
+(35055234, 3.6, "Jhon", "Doe", NULL, 88, "Electrical Engineering", 1,0),
+(23483838, 3.2, "Jackie", "Chan", 25949503, 100, "Computer Science", 0,1),
+(25324111, 2.5, "Pamella", "Anderson", NULL, 36, "Software Engineering", 1,0),
+(12345678, 4.2, "Stephen", "Hawking", 31415926, 128, "Aerospace Engineering", 0,1),
+(26441678, 2.8, "Jessica", "Jones", NULL, 59, "Software Engineering", 1,0),
+(40033233, 3.8, "Bob", "Ross", NULL, 42, "Computation Arts", 1,0);
+  
