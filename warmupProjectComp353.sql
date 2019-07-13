@@ -117,4 +117,25 @@ VALUES
 (12345678, 4.2, "Stephen", "Hawking", 31415926, 128, "Aerospace Engineering", 0,1),
 (26441678, 2.8, "Jessica", "Jones", NULL, 59, "Software Engineering", 1,0),
 (40033233, 3.8, "Bob", "Ross", NULL, 42, "Computation Arts", 1,0);
-  
+
+ALTER TABLE Instructor
+DROP name;
+
+ALTER TABLE Instructor
+ADD name TEXT NOT NULL;
+
+ALTER TABLE Instructor
+ADD COLUMN id INT PRIMARY KEY NOT NULL;
+
+ALTER TABLE Instructor
+MODIFY thesisSupervisor BOOLEAN DEFAULT FALSE;
+
+INSERT INTO Instructor
+VALUES
+(1,1,25949503,"God"),
+(1,1,15839967,"Snoop Dogg"),
+(1,0,31415926,"Neal Armstrong"),
+(0,0,11119495,"Bruce Willis"),
+(0,0,34442587,"Bruce Banner"),
+(0,0,22583930,"Christopher Robbin"),
+(0,0,33234588, "Jane Doe");
