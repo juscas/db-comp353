@@ -8,10 +8,8 @@ department.
 */
 
 /* viii */
+// Add regex for Summer1/2?
 SELECT DISTINCT Co.name, Ci.room, Ci.startTime, Ci.endTime, Ci.professor, Ci.maxCapacity, Ci.enrolledStudents FROM ClassInfo Ci, Course Co, Department D WHERE D.departmentName = 'Computer Science and Software Engineering' AND D.departmentName = Co.departmentName AND Co.code = Ci.code AND Ci.term = 'Summer2' AND Ci.year = 2019;
-/*
-SELECT DISTINCT Co.name, Ci.code, Ci.room FROM ClassInfo Ci, Course Co, Department D WHERE D.departmentName = 'Computer Science and Software Engineering' AND D.departmentName = Co.departmentName AND Ci.term = 'Summer2' AND Ci.year = 2019;
-*/
 
 /* ix */
-SELECT COUNT(SELECT * FROM Course C WHERE C.departmentName = "Computer Science"); /* loop this */
+SELECT COUNT(*), departmentName FROM Course GROUP BY departmentName;
