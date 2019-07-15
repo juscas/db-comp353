@@ -8,7 +8,13 @@ department.
 */
 
 /* viii */
-SELECT Cl.name, Cl.section, Cl.roomNumber, Cl.startTime, Cl.endTime, Cl.profName, Cl.maxCapacity, Cl.enrolledStudents FROM Class Cl, Course Co, Department D WHERE D.name = "Computer Science" AND D.name = Co.name AND Cl.term = "Fall" AND Cl.year = "2019";
+SELECT Co.name, Ci.section, Ci.room, Ci.startTime, Ci.endTime, Ci.profName, Ci.maxCapacity, Ci.enrolledStudents
+FROM ClassInfo Ci, Course Co, Department D WHERE D.departmentName = "Computer Science and Software Engineering"
+AND D.name = Co.name AND Ci.term = "Summer2" AND Ci.year = 2019;
+
+/*
+SELECT DISTINCT Co.name, Ci.code, Ci.room FROM ClassInfo Ci, Course Co, Department D WHERE D.departmentName = 'Computer Science and Software Engineering' AND D.departmentName = Co.departmentName AND Ci.term = 'Summer2' AND Ci.year = 2019;
+*/
 
 /* ix */
 SELECT COUNT(SELECT * FROM Course C WHERE C.departmentName = "Computer Science"); /* loop this */
