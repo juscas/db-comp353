@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS Instructor (
   id int(11) NOT NULL,
   name text NOT NULL,
   PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE IF NOT EXISTS Grade (
   letter TEXT NOT NULL,
