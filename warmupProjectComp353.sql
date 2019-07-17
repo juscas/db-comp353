@@ -283,10 +283,16 @@ VALUES
 
 CREATE TABLE ResearchFunding (
   rf_instructor_id int(11) DEFAULT NULL,
-  fundingAvailable tinyint(1) DEFAULT NULL,
   KEY rf_instructor_id (rf_instructor_id),
   CONSTRAINT ResearchFunding_ibfk_1 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id)
 );
+
+INSERT INTO ResearchFunding
+VALUES
+(15839967),
+(25949503),
+(31415926),
+(45648987);
 
 CREATE TABLE SupervisorLog (
   sl_prof int(11) NOT NULL,
@@ -325,16 +331,3 @@ VALUES
 (25949503, 34254352, "PhD Computer Science"),
 (25949503, 35055234, "PhD Computer Science");
 
-CREATE TABLE ResearchFunding (
-  rf_instructor_id int(11) DEFAULT NULL,
-  KEY rf_instructor_id (rf_instructor_id),
-  CONSTRAINT ResearchFunding_ibfk_1 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id),
-  CONSTRAINT ResearchFunding_ibfk_2 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id)
-);
-
-INSERT INTO ResearchFunding
-VALUES
-(15839967),
-(25949503),
-(31415926),
-(45648987);
