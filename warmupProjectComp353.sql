@@ -252,26 +252,20 @@ CREATE TABLE IF NOT EXISTS EnrolledProgram (
 
 INSERT INTO EnrolledProgram
 VALUES
- (12347401,"BSC Computer Science", 1),
- (12392014 ,"BSC Computer Science", 1),
- (23847773,"BSC Computer Science", 1),
- (23859103,"BSC Computer Science", 1),
- (24189032 ,"BSC Computer Science", 1),
- (28381944 ,"BSC Computer Science", 1),
- (29187561 ,"BSC Computer Science", 1),
- (32190348 ,"BSC Computer Science", 1),
- (32419483 ,"BSC Computer Science", 1),
- (32918347 ,"BSC Computer Science", 1),
- (34218409 ,"BSC Computer Science", 1),
- (38320048 ,"BSC Computer Science", 1),
- (43982014 ,"BSC Computer Science", 1),
- (50463696 ,"BSC Computer Science", 1),
- (53932584 ,"BSC Computer Science", 1),
- (55810372 ,"BSC Computer Science", 1),
- (57493390 ,"BSC Computer Science", 1),
- (75729303 ,"BSC Computer Science", 1),
- (83791402 ,"BSC Computer Science", 1),
- (94837921 ,"BSC Computer Science", 1);
+(40061791, "BSC Computer Science", 1),
+(40061791, "BSC Software Engineering", 3),
+(17654321, "BSC Material Engineering", 4),
+(34254352, "MA Psychology", 1),
+(33999323, "BSC Aerospace Engineering", NULL),
+(35055234, "BSC Electrical Engineering", 1),
+(23483838, "BSC Computer Science", 6),
+(25324111, "MA Civil Engineering", NULL),
+(12345678, "BSC Aerospace Engineering", 7),
+(26441678, "BSC Software Engineering", 3),
+(40033233, "BSC Computer Science", 9),
+(40033233, "MA Computation Arts", 10),
+(40061791, "MA Psychology", 8),
+(40033233, "BSC Software Engineering", 8);
 
 CREATE TABLE IF NOT EXISTS Department (
   departmentName varchar(100) NOT NULL,
