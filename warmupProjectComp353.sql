@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS irc353_1;
 
 USE irc353_1;
 
-CREATE TABLE Student (
+CREATE TABLE IF NOT EXISTS Student (
   s_id int(11) NOT NULL,
   firstName text NOT NULL,
   lastName text NOT NULL,
@@ -151,7 +151,7 @@ VALUES
 (0,0,22583930,"Christopher Robbin"),
 (0,0,33234588, "Jane Doe");
 
-CREATE TABLE ClassInfo (
+CREATE TABLE IF NOT EXISTS ClassInfo (
   year int NOT NULL,
   section varchar(10),
   professor TEXT,
@@ -175,7 +175,7 @@ VALUES
 (2019,  'J', 'Khaled Jababo', 'COMP353', 'Summer2', 'H903', '08:45:00', '10:10:00', 'tutorial', 30, 25, 'M-W--'),
 (2017,  'B', 'Aiman Hanna', 'COMP352', 'Summer1', 'H555', '17:30:00', '18:30:00', 'lecture', 78, 77, 'M--T-');
 
-CREATE TABLE ClassLog (
+CREATE TABLE IF NOT EXISTS ClassLog (
   id int(11) NOT NULL,
   code varchar(20) NOT NULL DEFAULT '',
   grade varchar(2) DEFAULT NULL,
@@ -216,7 +216,7 @@ VALUES
 (40033233,"ENCS282","B+",2018,"Fall","C"),
 (35055234,"ENCS282","B+",2018,"Fall","C");
 
-CREATE TABLE TeachingAssistant (
+CREATE TABLE IF NOT EXISTS TeachingAssistant (
   totalHours int(11) NOT NULL,
   assignedCourseCodes text NOT NULL,
   s_id int(11) NOT NULL,
@@ -234,7 +234,7 @@ VALUES
 (95, "COMP232", 34254352, 3.6, "Fall", NULL),
 (100, "COMP248", 40061791, 3.3, "Fall", NULL);
 
-CREATE TABLE EnrolledProgram (
+CREATE TABLE IF NOT EXISTS EnrolledProgram (
   s_id int(11) NOT NULL,
   enrolled varchar(100) NOT NULL,
   ep_advisor int(11)
@@ -263,7 +263,7 @@ VALUES
  (83791402 ,"BSC Computer Science", 1),
  (94837921 ,"BSC Computer Science", 1);
 
-CREATE TABLE Department (
+CREATE TABLE IF NOT EXISTS Department (
   departmentName varchar(100) NOT NULL,
   PRIMARY KEY (departmentName)
 );
@@ -281,7 +281,7 @@ VALUES
 ("Department of Theology"),
 ("Department of Design and Computation Arts");
 
-CREATE TABLE ResearchFunding (
+CREATE TABLE IF NOT EXISTS ResearchFunding (
   rf_instructor_id int(11) DEFAULT NULL,
   KEY rf_instructor_id (rf_instructor_id),
   CONSTRAINT ResearchFunding_ibfk_1 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id)
@@ -294,7 +294,7 @@ VALUES
 (31415926),
 (45648987);
 
-CREATE TABLE SupervisorLog (
+CREATE TABLE IF NOT EXISTS SupervisorLog (
   sl_prof int(11) NOT NULL,
   sl_s_id int(11) NOT NULL,
   sl_prog varchar(100) DEFAULT NULL,
@@ -330,4 +330,3 @@ VALUES
 (25949503, 34218409, "PhD Computer Science"),
 (25949503, 34254352, "PhD Computer Science"),
 (25949503, 35055234, "PhD Computer Science");
-
