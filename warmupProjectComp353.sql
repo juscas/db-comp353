@@ -98,11 +98,13 @@ VALUES
 CREATE TABLE IF NOT EXISTS Program (
   thesis BOOLEAN DEFAULT FALSE,
   departmentName  TEXT NOT NULL,
+  creditsRequired INT NOT NULL,
   type TEXT NOT NULL,
   requiredType TEXT NOT NULL
 );
 
-INSERT INTO Program VALUES
+INSERT INTO Program
+VALUES
 (0, 'Mechanical, Industrial and Aerospace Engineering', 90, 'BSC Aerospace Engineering', 0),
 (0, 'Building, Civil and Environmental Engineering', 90, 'BSC Civil Engineering', 0),
 (0, 'Computer Science and Software Engineering', 90, 'BSC Computer Science',0),
@@ -115,29 +117,29 @@ CREATE TABLE IF NOT EXISTS Advisor (
 
 INSERT INTO Advisor
 VALUES
-("John Smith", 1),
-("Peter John", 2),
-("Jesus Christ", 3),
-("Britney Spears", 4),
-("Nelson Mandela", 5),
-("Lebron James", 6),
-("Justin Trudeau", 7),
-("Donald Trump", 8),
-("Becky Tel", 9),
-("John Cena", 10);
+("John Smith"),
+("Peter John"),
+("Jesus Christ"),
+("Britney Spears"),
+("Nelson Mandela"),
+("Lebron James"),
+("Justin Trudeau"),
+("Donald Trump"),
+("Becky Tel"),
+("John Cena");
 
 INSERT INTO Student
 VALUES
-(40061791, 2.98, "Matthew", "Massey", NULL, 48, "Computer Science", 1,0),
-(17654321, 4.00, "Tony", "Hawk", 15839967, 125, "Engineering", 0,1),
-(34254352, 1.8, "Sally", "Sadness", NULL, 22, "Psychology", 1,0),
-(33999323, 4.3, "Jesus", "Christ", 25949503, 130, "Aerospace Engineering", 1,1),
-(35055234, 3.6, "Jhon", "Doe", NULL, 88, "Electrical Engineering", 1,0),
-(23483838, 3.2, "Jackie", "Chan", 25949503, 100, "Computer Science", 0,1),
-(25324111, 2.5, "Pamella", "Anderson", NULL, 36, "Software Engineering", 1,0),
-(12345678, 4.2, "Stephen", "Hawking", 31415926, 128, "Aerospace Engineering", 0,1),
-(26441678, 2.8, "Jessica", "Jones", NULL, 59, "Software Engineering", 1,0),
-(40033233, 3.8, "Bob", "Ross", NULL, 42, "Computation Arts", 1,0);
+(40061791, "Matthew", "Massey", 48),
+(17654321, "Tony", "Hawk", 125),
+(34254352, "Sally", "Sadness", 22),
+(33999323, "Jesus", "Christ", 130),
+(35055234, "Jhon", "Doe", 88),
+(23483838, "Jackie", "Chan", 100),
+(25324111, "Pamella", "Anderson", 36),
+(12345678, "Stephen", "Hawking", 128),
+(26441678, "Jessica", "Jones", 59),
+(40033233, "Bob", "Ross", 42);
 
 INSERT INTO Instructor
 VALUES
@@ -232,6 +234,12 @@ VALUES
 (95, "COMP232", 34254352, 3.6, "Fall", NULL),
 (100, "COMP248", 40061791, 3.3, "Fall", NULL);
 
+CREATE TABLE EnrolledProgram (
+  s_id int(11) NOT NULL,
+  enrolled varchar(100) NOT NULL,
+  ep_advisor int(11)
+);
+
 INSERT INTO EnrolledProgram
 VALUES
  (12347401,"BSC Computer Science", 1),
@@ -324,7 +332,8 @@ CREATE TABLE ResearchFunding (
   CONSTRAINT ResearchFunding_ibfk_2 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id)
 );
 
- INSERT INTO ResearchFunding VALUES
+INSERT INTO ResearchFunding
+VALUES
 (15839967),
 (25949503),
 (31415926),
