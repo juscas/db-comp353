@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS irc353_1;
+
+USE irc353_1;
+
 CREATE TABLE Student (
   s_id int(11) NOT NULL,
   firstName text NOT NULL,
