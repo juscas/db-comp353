@@ -123,10 +123,12 @@ VALUES
 (0, 'Chemical and Materials Engineering', 90, 'BSC Material Engineering', 0);
 
 CREATE TABLE IF NOT EXISTS Advisor (
-  name TEXT NOT NULL
+  name TEXT NOT NULL,
+  a_id int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (a_id)
 );
 
-INSERT INTO Advisor
+INSERT INTO Advisor (name)
 VALUES
 ("John Smith"),
 ("Peter John"),
