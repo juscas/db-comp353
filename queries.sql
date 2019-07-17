@@ -40,7 +40,7 @@ SELECT s.s_id, s.firstName, s.lastName
 FROM Student s, TeachingAssistant t
 WHERE s.s_id = t.s_id && t.term = "Summer" && t.assignedCourseCodes = "COMP353";
 
-/* vii Find the name of all the supervisors in the Computer Science department
+/* vii. Find the name of all the supervisors in the Computer Science department
 who have supervised at least 20 students. */
 SELECT name
 FROM (
@@ -49,7 +49,7 @@ FROM (
   WHERE e.sl_prof = f.id AND e.sl_prog = z.programName AND z.department = 'Computer Science and Software Engineering'
   GROUP BY sl_prof HAVING count(*) > 19) f;
 
-/* viii Find the details of all the courses offered by the Computer Science
+/* viii. Find the details of all the courses offered by the Computer Science
 department for the summer term of 2019. Details include Course name,
 section, room location, start and end time, professor teaching the course,
 max class capacity and number of enrolled students. */
@@ -58,13 +58,13 @@ SELECT DISTINCT Co.name, Ci.room, Ci.startTime, Ci.endTime, Ci.professor, Ci.max
 FROM ClassInfo Ci, Course Co, Department D
 WHERE D.departmentName = 'Computer Science and Software Engineering' AND D.departmentName = Co.departmentName AND Co.code = Ci.code AND Ci.term = 'Summer2' AND Ci.year = 2019;
 
-/* ix For each department, find the total number of courses offered by the
+/* ix. For each department, find the total number of courses offered by the
 department. */
 SELECT COUNT(*), departmentName
 FROM Course
 GROUP BY departmentName;
 
-/* x For each program, find the total number of students enrolled into the
+/* x. For each program, find the total number of students enrolled into the
 program. */
 SELECT enrolled, count(*)
 FROM EnrolledProgram
