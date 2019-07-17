@@ -95,6 +95,17 @@ VALUES
 ("D-", 0.70),
 ("F", 0);
 
+
+CREATE TABLE Program (
+  isThesis tinyint(1) DEFAULT 0,
+  department varchar(100) DEFAULT NULL,
+  creditsRequired int(11) NOT NULL,
+  programName varchar(100) NOT NULL,
+  isGrad tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (programName),
+  KEY (department)
+);
+
 CREATE TABLE IF NOT EXISTS Program (
   thesis BOOLEAN DEFAULT FALSE,
   departmentName  TEXT NOT NULL,
@@ -223,8 +234,7 @@ CREATE TABLE IF NOT EXISTS TeachingAssistant (
   gpa float NOT NULL,
   term text,
   year text,
-  PRIMARY KEY (s_id),
-  CONSTRAINT TeachingAssistant_ibfk_1 FOREIGN KEY (s_id) REFERENCES Student (s_id)
+  PRIMARY KEY (s_id)
 );
 
 INSERT INTO TeachingAssistant
@@ -283,8 +293,7 @@ VALUES
 
 CREATE TABLE IF NOT EXISTS ResearchFunding (
   rf_instructor_id int(11) DEFAULT NULL,
-  KEY rf_instructor_id (rf_instructor_id),
-  CONSTRAINT ResearchFunding_ibfk_1 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id)
+  KEY rf_instructor_id (rf_instructor_id)
 );
 
 INSERT INTO ResearchFunding
@@ -300,10 +309,7 @@ CREATE TABLE IF NOT EXISTS SupervisorLog (
   sl_prog varchar(100) DEFAULT NULL,
   KEY sl_prof (sl_prof),
   KEY sl_s_id (sl_s_id),
-  KEY sl_prog (sl_prog),
-  CONSTRAINT SupervisorLog_ibfk_1 FOREIGN KEY (sl_prof) REFERENCES Instructor (id),
-  CONSTRAINT SupervisorLog_ibfk_2 FOREIGN KEY (sl_s_id) REFERENCES Student (s_id),
-  CONSTRAINT SupervisorLog_ibfk_3 FOREIGN KEY (sl_prog) REFERENCES Program (programName)
+  KEY sl_prog (sl_prog)
 );
 
 INSERT INTO SupervisorLog
