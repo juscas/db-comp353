@@ -1,10 +1,9 @@
-
-CREATE TABLE `Student` (
-  `s_id` int(11) NOT NULL,
-  `firstName` text NOT NULL,
-  `lastName` text NOT NULL,
-  `totalCredits` int(11) NOT NULL,
-  PRIMARY KEY (`s_id`)
+CREATE TABLE Student (
+  s_id int(11) NOT NULL,
+  firstName text NOT NULL,
+  lastName text NOT NULL,
+  totalCredits int(11) NOT NULL,
+  PRIMARY KEY (s_id)
 );
 
 INSERT INTO Student
@@ -31,14 +30,14 @@ VALUES
 (23847773, "Victor", "Mete", 53),
 (55810372, "Ryan", "Poehling", 35);
 
-CREATE TABLE IF NOT EXISTS Course(
+CREATE TABLE IF NOT EXISTS Course (
   code varchar(20) PRIMARY KEY NOT NULL,
   departmentName TEXT NOT NULL,
   name TEXT NOT NULL,
   prereqCourses TEXT ,
   coreqCourses TEXT ,
   credit TEXT NOT NULL
-  );
+);
 
 INSERT INTO Course VALUES('COMP248', 'Computer Science and Software Engineering', 'Object Oriented Programming 1', NULL, NULL, 3);
 INSERT INTO Course VALUES('COMP249', 'Computer Science and Software Engineering', 'Object Oriented Programming 2', 'COMP248', NULL, 3);
@@ -52,65 +51,63 @@ INSERT INTO Course VALUES('COMP335', 'Computer Science and Software Engineering'
 INSERT INTO Course VALUES('COMP354', 'Computer Science and Software Engineering', 'Introduction to Software Engineering', 'COMP352,ENCS282', NULL, 4);
 INSERT INTO Course VALUES('ENCS393', 'Computer Science and Software Engineering', 'Social and Ethical Dimensions of Information', 'ENCS282', NULL, 3);
 
-CREATE TABLE IF NOT EXISTS Term(
+CREATE TABLE IF NOT EXISTS Term (
   name text NOT NULL
-  );
+);
 
-INSERT INTO Term 
+INSERT INTO Term
 VALUES
 ("Winter"),
 ("Summer1"),
 ("Summer2"),
 ("Fall");
 
-
-CREATE TABLE IF NOT EXISTS Instructor(
-  `thesisSupervisor` tinyint(1) DEFAULT '0',
-  `fundingAvailable` tinyint(1) DEFAULT '0',
-  `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS Instructor (
+  thesisSupervisor tinyint(1) DEFAULT '0',
+  fundingAvailable tinyint(1) DEFAULT '0',
+  id int(11) NOT NULL,
+  name text NOT NULL,
+  PRIMARY KEY (id)
 )
 
-CREATE TABLE IF NOT EXISTS Grade(
+CREATE TABLE IF NOT EXISTS Grade (
   letter TEXT NOT NULL,
   gpa FLOAT NOT NULL
-  );
+);
 
-
-INSERT INTO Grade 
+INSERT INTO Grade
 VALUES
-  ("A+", 4.30),
-  ("A", 4.00),
-  ("A-", 3.70),
-  ("B+", 3.30),
-  ("B", 3.00),
-  ("B-", 2.70),
-  ("C+", 2.30),
-  ("C", 2.00),
-  ("C-", 1.70),
-  ("D+", 1.30),
-  ("D", 1.00),
-  ("D-", 0.70),
-  ("F", 0);
+("A+", 4.30),
+("A", 4.00),
+("A-", 3.70),
+("B+", 3.30),
+("B", 3.00),
+("B-", 2.70),
+("C+", 2.30),
+("C", 2.00),
+("C-", 1.70),
+("D+", 1.30),
+("D", 1.00),
+("D-", 0.70),
+("F", 0);
 
-  CREATE TABLE IF NOT EXISTS Program(
-    thesis BOOLEAN DEFAULT FALSE,
-    departmentName  TEXT NOT NULL,
-    type TEXT NOT NULL,
-    requiredType TEXT NOT NULL
-    );
+CREATE TABLE IF NOT EXISTS Program (
+  thesis BOOLEAN DEFAULT FALSE,
+  departmentName  TEXT NOT NULL,
+  type TEXT NOT NULL,
+  requiredType TEXT NOT NULL
+);
 
-  INSERT INTO Program VALUES 
-x(0, 'Mechanical, Industrial and Aerospace Engineering', 90, 'BSC Aerospace Engineering', 0),
+INSERT INTO Program VALUES
+(0, 'Mechanical, Industrial and Aerospace Engineering', 90, 'BSC Aerospace Engineering', 0),
 (0, 'Building, Civil and Environmental Engineering', 90, 'BSC Civil Engineering', 0),
 (0, 'Computer Science and Software Engineering', 90, 'BSC Computer Science',0),
 (0, 'Electrical and Computer Engineering', 90, 'BSC Electrical Engineering', 0),
 (0, 'Chemical and Materials Engineering', 90, 'BSC Material Engineering', 0);
 
-CREATE TABLE IF NOT EXISTS Advisor(
+CREATE TABLE IF NOT EXISTS Advisor (
   name TEXT NOT NULL
-  );
+);
 
 INSERT INTO Advisor
 VALUES
@@ -126,7 +123,7 @@ VALUES
 ("John Cena", 10);
 
 INSERT INTO Student
-VALUES 
+VALUES
 (40061791, 2.98, "Matthew", "Massey", NULL, 48, "Computer Science", 1,0),
 (17654321, 4.00, "Tony", "Hawk", 15839967, 125, "Engineering", 0,1),
 (34254352, 1.8, "Sally", "Sadness", NULL, 22, "Psychology", 1,0),
@@ -138,8 +135,6 @@ VALUES
 (26441678, 2.8, "Jessica", "Jones", NULL, 59, "Software Engineering", 1,0),
 (40033233, 3.8, "Bob", "Ross", NULL, 42, "Computation Arts", 1,0);
 
-
-
 INSERT INTO Instructor
 VALUES
 (1,1,25949503,"God"),
@@ -148,24 +143,22 @@ VALUES
 (0,0,11119495,"Bruce Willis"),
 (0,0,34442587,"Bruce Banner"),
 (0,0,22583930,"Christopher Robbin"),
-(0,0,33234588, "Jane Doe")
+(0,0,33234588, "Jane Doe");
 
-
-
-CREATE TABLE ClassInfo(
-year int NOT NULL,
-section varchar(10), 
-professor TEXT,
-code varchar(10),
-term varchar(10),
-room text,
-startTime TIME,
-endTime TIME,
-type TEXT,
-maxCapacity int,
-enrolledStudents int,
-days text,
-PRIMARY KEY(year, section, term, code)
+CREATE TABLE ClassInfo (
+  year int NOT NULL,
+  section varchar(10),
+  professor TEXT,
+  code varchar(10),
+  term varchar(10),
+  room text,
+  startTime TIME,
+  endTime TIME,
+  type TEXT,
+  maxCapacity int,
+  enrolledStudents int,
+  days text,
+  PRIMARY KEY(year, section, term, code)
 );
 
 INSERT INTO ClassInfo
@@ -176,18 +169,15 @@ VALUES
 (2019,  'J', 'Khaled Jababo', 'COMP353', 'Summer2', 'H903', '08:45:00', '10:10:00', 'tutorial', 30, 25, 'M-W--'),
 (2017,  'B', 'Aiman Hanna', 'COMP352', 'Summer1', 'H555', '17:30:00', '18:30:00', 'lecture', 78, 77, 'M--T-');
 
-
-CREATE TABLE `ClassLog` (
-  `id` int(11) NOT NULL,
-  `code` varchar(20) NOT NULL DEFAULT '',
-  `grade` varchar(2) DEFAULT NULL,
-  `year` int(11) NOT NULL DEFAULT '0',
-  `term` varchar(10) NOT NULL DEFAULT '',
-  `section` char(1) DEFAULT NULL,
-  PRIMARY KEY (`id`,`code`,`year`,`term`)
+CREATE TABLE ClassLog (
+  id int(11) NOT NULL,
+  code varchar(20) NOT NULL DEFAULT '',
+  grade varchar(2) DEFAULT NULL,
+  year int(11) NOT NULL DEFAULT '0',
+  term varchar(10) NOT NULL DEFAULT '',
+  section char(1) DEFAULT NULL,
+  PRIMARY KEY (id, code, year, term)
 );
-
-
 
 INSERT INTO ClassLog
 VALUES
@@ -209,12 +199,10 @@ VALUES
 (12345678,"COMP232","A+",2016,"Fall","A"),
 (12345678,"COMP352","A+",2017,"Winter","D"),
 (12345678,"ENCS393","A+",2017,"Summer2","B"),
-
 (23483838,"COMP248","C+",2017,"Summer2","A"),
 (23483838,"COMP249","B",2017,"Fall","C"),
 (25324111,"COMP249","D",2018,"Fall","C"),
 (25324111,"ENCS282","D",2018,"Fall","C"),
-
 (26441678 ,"COMP248","D",2018,"Fall","C"),
 (33999323,"COMP248","A+",2018,"Fall","A"),
 (34254352,"COMP248","C+",2018,"Fall","A"),
@@ -222,16 +210,15 @@ VALUES
 (40033233,"ENCS282","B+",2018,"Fall","C"),
 (35055234,"ENCS282","B+",2018,"Fall","C");
 
-
-  CREATE TABLE `TeachingAssistant` (
-  `totalHours` int(11) NOT NULL,
-  `assignedCourseCodes` text NOT NULL,
-  `s_id` int(11) NOT NULL,
-  `gpa` float NOT NULL,
-  `term` text,
-  `year` text,
-  PRIMARY KEY (`s_id`),
-  CONSTRAINT `TeachingAssistant_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `Student` (`s_id`)
+CREATE TABLE TeachingAssistant (
+  totalHours int(11) NOT NULL,
+  assignedCourseCodes text NOT NULL,
+  s_id int(11) NOT NULL,
+  gpa float NOT NULL,
+  term text,
+  year text,
+  PRIMARY KEY (s_id),
+  CONSTRAINT TeachingAssistant_ibfk_1 FOREIGN KEY (s_id) REFERENCES Student (s_id)
 );
 
 INSERT INTO TeachingAssistant
@@ -241,33 +228,32 @@ VALUES
 (95, "COMP232", 34254352, 3.6, "Fall", NULL),
 (100, "COMP248", 40061791, 3.3, "Fall", NULL);
 
-
 INSERT INTO EnrolledProgram
 VALUES
- (12347401,"BSC Computer Science", 1), 
- (12392014 ,"BSC Computer Science", 1), 
- (23847773,"BSC Computer Science", 1), 
- (23859103,"BSC Computer Science", 1), 
- (24189032 ,"BSC Computer Science", 1), 
- (28381944 ,"BSC Computer Science", 1), 
- (29187561 ,"BSC Computer Science", 1), 
- (32190348 ,"BSC Computer Science", 1), 
- (32419483 ,"BSC Computer Science", 1), 
- (32918347 ,"BSC Computer Science", 1), 
- (34218409 ,"BSC Computer Science", 1), 
- (38320048 ,"BSC Computer Science", 1), 
- (43982014 ,"BSC Computer Science", 1), 
- (50463696 ,"BSC Computer Science", 1), 
- (53932584 ,"BSC Computer Science", 1), 
- (55810372 ,"BSC Computer Science", 1), 
- (57493390 ,"BSC Computer Science", 1), 
- (75729303 ,"BSC Computer Science", 1), 
- (83791402 ,"BSC Computer Science", 1), 
+ (12347401,"BSC Computer Science", 1),
+ (12392014 ,"BSC Computer Science", 1),
+ (23847773,"BSC Computer Science", 1),
+ (23859103,"BSC Computer Science", 1),
+ (24189032 ,"BSC Computer Science", 1),
+ (28381944 ,"BSC Computer Science", 1),
+ (29187561 ,"BSC Computer Science", 1),
+ (32190348 ,"BSC Computer Science", 1),
+ (32419483 ,"BSC Computer Science", 1),
+ (32918347 ,"BSC Computer Science", 1),
+ (34218409 ,"BSC Computer Science", 1),
+ (38320048 ,"BSC Computer Science", 1),
+ (43982014 ,"BSC Computer Science", 1),
+ (50463696 ,"BSC Computer Science", 1),
+ (53932584 ,"BSC Computer Science", 1),
+ (55810372 ,"BSC Computer Science", 1),
+ (57493390 ,"BSC Computer Science", 1),
+ (75729303 ,"BSC Computer Science", 1),
+ (83791402 ,"BSC Computer Science", 1),
  (94837921 ,"BSC Computer Science", 1);
 
-CREATE TABLE `Department` (
-  `departmentName` varchar(100) NOT NULL,
-  PRIMARY KEY (`departmentName`)
+CREATE TABLE Department (
+  departmentName varchar(100) NOT NULL,
+  PRIMARY KEY (departmentName)
 );
 
 INSERT INTO Department
@@ -283,24 +269,23 @@ VALUES
 ("Department of Theology"),
 ("Department of Design and Computation Arts");
 
-
-CREATE TABLE `ResearchFunding` (
-  `rf_instructor_id` int(11) DEFAULT NULL,
-  `fundingAvailable` tinyint(1) DEFAULT NULL,
-  KEY `rf_instructor_id` (`rf_instructor_id`),
-  CONSTRAINT `ResearchFunding_ibfk_1` FOREIGN KEY (`rf_instructor_id`) REFERENCES `Instructor` (`id`)
+CREATE TABLE ResearchFunding (
+  rf_instructor_id int(11) DEFAULT NULL,
+  fundingAvailable tinyint(1) DEFAULT NULL,
+  KEY rf_instructor_id (rf_instructor_id),
+  CONSTRAINT ResearchFunding_ibfk_1 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id)
 );
 
-CREATE TABLE `SupervisorLog` (
-  `sl_prof` int(11) NOT NULL,
-  `sl_s_id` int(11) NOT NULL,
-  `sl_prog` varchar(100) DEFAULT NULL,
-  KEY `sl_prof` (`sl_prof`),
-  KEY `sl_s_id` (`sl_s_id`),
-  KEY `sl_prog` (`sl_prog`),
-  CONSTRAINT `SupervisorLog_ibfk_1` FOREIGN KEY (`sl_prof`) REFERENCES `Instructor` (`id`),
-  CONSTRAINT `SupervisorLog_ibfk_2` FOREIGN KEY (`sl_s_id`) REFERENCES `Student` (`s_id`),
-  CONSTRAINT `SupervisorLog_ibfk_3` FOREIGN KEY (`sl_prog`) REFERENCES `Program` (`programName`)
+CREATE TABLE SupervisorLog (
+  sl_prof int(11) NOT NULL,
+  sl_s_id int(11) NOT NULL,
+  sl_prog varchar(100) DEFAULT NULL,
+  KEY sl_prof (sl_prof),
+  KEY sl_s_id (sl_s_id),
+  KEY sl_prog (sl_prog),
+  CONSTRAINT SupervisorLog_ibfk_1 FOREIGN KEY (sl_prof) REFERENCES Instructor (id),
+  CONSTRAINT SupervisorLog_ibfk_2 FOREIGN KEY (sl_s_id) REFERENCES Student (s_id),
+  CONSTRAINT SupervisorLog_ibfk_3 FOREIGN KEY (sl_prog) REFERENCES Program (programName)
 );
 
 INSERT INTO SupervisorLog
@@ -328,11 +313,11 @@ VALUES
 (25949503, 34254352, "PhD Computer Science"),
 (25949503, 35055234, "PhD Computer Science");
 
-CREATE TABLE `ResearchFunding` (
-  `rf_instructor_id` int(11) DEFAULT NULL,
-  KEY `rf_instructor_id` (`rf_instructor_id`),
-  CONSTRAINT `ResearchFunding_ibfk_1` FOREIGN KEY (`rf_instructor_id`) REFERENCES `Instructor` (`id`),
-  CONSTRAINT `ResearchFunding_ibfk_2` FOREIGN KEY (`rf_instructor_id`) REFERENCES `Instructor` (`id`)
+CREATE TABLE ResearchFunding (
+  rf_instructor_id int(11) DEFAULT NULL,
+  KEY rf_instructor_id (rf_instructor_id),
+  CONSTRAINT ResearchFunding_ibfk_1 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id),
+  CONSTRAINT ResearchFunding_ibfk_2 FOREIGN KEY (rf_instructor_id) REFERENCES Instructor (id)
 );
 
  INSERT INTO ResearchFunding VALUES
@@ -340,4 +325,3 @@ CREATE TABLE `ResearchFunding` (
 (25949503),
 (31415926),
 (45648987);
-
