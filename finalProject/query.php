@@ -28,8 +28,6 @@ if (!$result) {
     $message = 'Invalid query: ' . mysqli_error($conn) . '<br>';
     die($message);
 } else {
-    $row = mysqli_fetch_array($result);
-
     echo "Result:<br>";
 
     // Process all rows
