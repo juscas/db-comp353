@@ -24,7 +24,7 @@ if (!$conn) {
 echo "Connected successfully";
 ?>
 <form action="query.php" method="GET">
-    <textarea name="userQuery" cols="100" rows="5">Enter your SQL query here...</textarea><br>
+    <textarea name="userQuery" cols="100" rows="5" placeholder = "Enter your SQL query here..."></textarea><br>
     <input type="submit" value="Run Query on LIVE DB"/>
 </form>
 <!-- For now the results appear on another page which we redirect to -->
