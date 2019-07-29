@@ -45,6 +45,7 @@ if (!$result) {
     }
     echo '--------------------<br>';
     echo "Total rows: $i";
+    echo '<br>';
     $link_address = 'https://irc353.encs.concordia.ca/demo.php';
     echo "<a href='$link_address'>Go Back</a>";
 }
