@@ -38,7 +38,7 @@ who are assigned as teaching assistants to Comp 353 for the summer term
 of 2019. */
 SELECT s.s_id, s.firstName, s.lastName
 FROM Student s, TeachingAssistant t
-WHERE s.s_id = t.s_id && t.term = "Summer" && t.assignedCourseCodes = "COMP353";
+WHERE s.s_id = t.s_id AND t.term = "Summer" AND t.assignedCourseCodes = "COMP353";
 
 /* vii. Find the name of all the supervisors in the Computer Science department
 who have supervised at least 20 students. */
